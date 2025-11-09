@@ -1,0 +1,6 @@
+com/texteditor/util/JsonUtil.class
+com/texteditor/util/FileHandler.class
+com/texteditor/model/Comment.class
+com/texteditor/model/Document.class
+com/texteditor/util/Constants.class
+com/texteditor/model/Document$DocumentStats.class

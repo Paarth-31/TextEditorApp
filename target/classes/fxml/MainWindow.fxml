@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.texteditor.ui.MainController" prefHeight="1000.0" prefWidth="1600.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 11;">
+
+    <!-- Top Section: Menu Bar and Toolbars -->
+    <top>
+        <VBox spacing="0" style="-fx-background-color: #f5f5f5;">
+            
+            <!-- Menu Bar -->
+            <MenuBar style="-fx-background-color: linear-gradient(to right, #1976D2, #1565C0); -fx-border-color: #0D47A1; -fx-border-width: 0 0 2 0;">
+                
+                <!-- File Menu -->
+                <Menu text="File" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="New" onAction="#handleNew"/>
+                    <MenuItem text="Open" onAction="#handleOpen"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Save" onAction="#handleSave"/>
+                    <MenuItem text="Save As" onAction="#handleSaveAs"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Print" onAction="#handlePrint"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+                
+                <!-- Edit Menu -->
+                <Menu text="Edit" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="Undo" onAction="#handleUndo"/>
+                    <MenuItem text="Redo" onAction="#handleRedo"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Cut" onAction="#handleCut"/>
+                    <MenuItem text="Copy" onAction="#handleCopy"/>
+                    <MenuItem text="Paste" onAction="#handlePaste"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Select All" onAction="#handleSelectAll"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Find &amp; Replace" onAction="#handleFindReplace"/>
+                </Menu>
+                
+                <!-- Format Menu -->
+                <Menu text="Format" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="Bold (Ctrl+B)" onAction="#handleBold"/>
+                    <MenuItem text="Italic (Ctrl+I)" onAction="#handleItalic"/>
+                    <MenuItem text="Underline (Ctrl+U)" onAction="#handleUnderline"/>
+                    <MenuItem text="Strikethrough" onAction="#handleStrikethrough"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Text Color" onAction="#handleTextColor"/>
+                    <MenuItem text="Highlight Color" onAction="#handleHighlight"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Clear Formatting" onAction="#handleClearFormat"/>
+                </Menu>
+                
+                <!-- Styles Menu -->
+                <Menu text="Styles" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="Heading 1" onAction="#handleHeading1"/>
+                    <MenuItem text="Heading 2" onAction="#handleHeading2"/>
+                    <MenuItem text="Heading 3" onAction="#handleHeading3"/>
+                    <MenuItem text="Normal" onAction="#handleNormal"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Quote" onAction="#handleQuote"/>
+                </Menu>
+                
+                <!-- Document Menu -->
+                <Menu text="Document" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="Toggle Track Changes" onAction="#handleTrackChanges"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Statistics" onAction="#handleStatistics"/>
+                    <MenuItem text="Document Info" onAction="#handleDocInfo"/>
+                </Menu>
+                
+                <!-- View Menu -->
+                <Menu text="View" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="Switch Theme" onAction="#handleTheme"/>
+                    <MenuItem text="Customize UI" onAction="#handleCustomize"/>
+                </Menu>
+                
+                <!-- Help Menu -->
+                <Menu text="Help" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <MenuItem text="About" onAction="#handleAbout"/>
+                    <MenuItem text="Keyboard Shortcuts" onAction="#handleShortcuts"/>
+                </Menu>
+                
+            </MenuBar>
+            
+            <!-- Main Toolbar -->
+            <ToolBar prefHeight="85.0" style="-fx-background-color: linear-gradient(to bottom, #E3F2FD, #BBDEFB); -fx-border-color: #90CAF9; -fx-border-width: 1; -fx-padding: 8 10 8 10; -fx-spacing: 8;">
+                
+                <!-- Font Family -->
+                <Label text="Font:" style="-fx-text-fill: #424242; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="fontFamilyCombo" prefWidth="140.0" style="-fx-padding: 6 10 6 10; -fx-background-color: white; -fx-border-color: #90CAF9; -fx-border-radius: 3;"/>
+                
+                <!-- Font Size -->
+                <Label text="Size:" style="-fx-text-fill: #424242; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="fontSizeCombo" prefWidth="80.0" style="-fx-padding: 6 10 6 10; -fx-background-color: white; -fx-border-color: #90CAF9; -fx-border-radius: 3;"/>
+                
+                <Separator orientation="VERTICAL" style="-fx-border-color: #BDBDBD; -fx-border-width: 0 1 0 0;"/>
+                
+                <!-- Format Buttons -->
+                <ToggleButton fx:id="boldBtn" text="B" prefWidth="40.0" prefHeight="40.0" style="-fx-font-weight: bold; -fx-font-size: 14; -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-padding: 8 15 8 15; -fx-border-radius: 4; -fx-background-radius: 4;" onAction="#handleBoldSelection"/>
+                
+                <ToggleButton fx:id="italicBtn" text="I" prefWidth="40.0" prefHeight="40.0" style="-fx-font-style: italic; -fx-font-size: 14; -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-padding: 8 15 8 15; -fx-border-radius: 4; -fx-background-radius: 4;" onAction="#handleItalicSelection"/>
+                
+                <ToggleButton fx:id="underlineBtn" text="U" prefWidth="40.0" prefHeight="40.0" style="-fx-underline: true; -fx-font-size: 14; -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-padding: 8 15 8 15; -fx-border-radius: 4; -fx-background-radius: 4;" onAction="#handleUnderlineSelection"/>
+                
+                <ToggleButton fx:id="strikeBtn" text="S" prefWidth="40.0" prefHeight="40.0" style="-fx-font-size: 14; -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-padding: 8 15 8 15; -fx-border-radius: 4; -fx-background-radius: 4;" onAction="#handleStrikethroughSelection"/>
+                
+                <Separator orientation="VERTICAL" style="-fx-border-color: #BDBDBD; -fx-border-width: 0 1 0 0;"/>
+                
+                <!-- Alignment -->
+                <Label text="Align:" style="-fx-text-fill: #424242; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="alignmentCombo" prefWidth="100.0" style="-fx-padding: 6 10 6 10; -fx-background-color: white; -fx-border-color: #90CAF9; -fx-border-radius: 3;"/>
+                
+                <Separator orientation="VERTICAL" style="-fx-border-color: #BDBDBD; -fx-border-width: 0 1 0 0;"/>
+                
+                <!-- Color Pickers -->
+                <Label text="Text:" style="-fx-text-fill: #424242; -fx-font-weight: bold;"/>
+                <ColorPicker fx:id="textColorPicker" prefWidth="50.0" prefHeight="40.0" style="-fx-padding: 5;" onAction="#handleTextColorSelection"/>
+                
+                <Label text="Highlight:" style="-fx-text-fill: #424242; -fx-font-weight: bold;"/>
+                <ColorPicker fx:id="highlightColorPicker" prefWidth="50.0" prefHeight="40.0" style="-fx-padding: 5;" onAction="#handleHighlightSelection"/>
+                
+                <Separator orientation="VERTICAL" style="-fx-border-color: #BDBDBD; -fx-border-width: 0 1 0 0;"/>
+                
+                <!-- Clear Format Button -->
+                <Button text="Clear Format" prefHeight="40.0" style="-fx-padding: 8 15 8 15; -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11; -fx-border-radius: 4; -fx-background-radius: 4;" onAction="#handleClearFormatSelection"/>
+                
+            </ToolBar>
+        </VBox>
+    </top>
+    
+    <!-- Center: Rich Text Area -->
+    <center>
+        <StackPane fx:id="textEditorContainer" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 1;">
+            <!-- Rich Text Area will be added programmatically here -->
+        </StackPane>
+    </center>
+    
+    <!-- Bottom: Status Bar -->
+    <bottom>
+        <HBox spacing="10.0" style="-fx-background-color: linear-gradient(to right, #C8E6C9, #A5D6A7); -fx-border-color: #7CB342; -fx-border-width: 1 0 0 0; -fx-padding: 8 10 8 10;">
+            
+            <Label fx:id="statusLabel" text="Ready | Words: 0 | Characters: 0 | Lines: 1" style="-fx-text-fill: #1B5E20; -fx-font-weight: bold; -fx-font-size: 10;" HBox.hgrow="ALWAYS"/>
+            
+            <Separator orientation="VERTICAL" style="-fx-border-color: #7CB342; -fx-border-width: 0 1 0 0;"/>
+            
+            <Label fx:id="trackingStatusLabel" text="Track Changes: OFF" style="-fx-text-fill: #7CB342; -fx-font-weight: bold; -fx-font-size: 10;"/>
+            
+        </HBox>
+    </bottom>
+    
+</BorderPane>

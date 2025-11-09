@@ -1,0 +1,16 @@
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/util/JsonUtil.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/util/FileHandler.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/model/Document.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/util/Constants.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/ui/MainController.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/engine/FormattingEngine.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/manager/StyleManager.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/manager/DocumentManager.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/model/Theme.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/engine/SearchReplaceEngine.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/engine/TrackingEngine.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/model/Comment.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/model/ChangeTracker.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/model/Style.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/main/Main.java
+/home/paarth/Sem_3/OOM/TextEditorApp/src/com/texteditor/manager/PreferencesManager.java

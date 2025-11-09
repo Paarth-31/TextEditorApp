@@ -1,0 +1,37 @@
+package com.texteditor.main;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+        BorderPane root = new BorderPane();
+        
+        TextArea textArea = new TextArea();
+        textArea.setWrapText(true);
+        textArea.setStyle("-fx-font-family: 'Consolas'; -fx-font-size: 12pt;");
+        root.setCenter(textArea);
+        
+        MenuBar menuBar = new MenuBar();
+        Menu fileMenu = new Menu("File");
+        MenuItem exitItem = new MenuItem("Exit");
+        exitItem.setOnAction(e -> System.exit(0));
+        fileMenu.getItems().add(exitItem);
+        menuBar.getMenus().add(fileMenu);
+        root.setTop(menuBar);
+        
+        Scene scene = new Scene(root, 1200, 800);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Advanced Text Editor");
+        primaryStage.show();
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
